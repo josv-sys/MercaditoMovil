@@ -1,0 +1,12 @@
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\bin\Debug\net9.0\MercaditoMovil.Domain.deps.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\bin\Debug\net9.0\MercaditoMovil.Domain.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\bin\Debug\net9.0\MercaditoMovil.Domain.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.AssemblyInfoInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.AssemblyInfo.cs
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.csproj.CoreCompileInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.sourcelink.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\refint\MercaditoMovil.Domain.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\MercaditoMovil.Domain.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\Mercadito.Domain\obj\Debug\net9.0\ref\MercaditoMovil.Domain.dll

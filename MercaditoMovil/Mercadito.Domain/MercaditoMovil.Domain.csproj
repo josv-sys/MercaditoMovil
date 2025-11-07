@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\User\" />
+    <Folder Include="Interfaces\Csv\IUserCsvWriter\" />
+    <Folder Include="Interfaces\Csv\IUserCsvLoader\" />
+    <Folder Include="Interfaces\IUserRepository\" />
+    <Folder Include="ValueObjects\Address\" />
+  </ItemGroup>
+
+</Project>

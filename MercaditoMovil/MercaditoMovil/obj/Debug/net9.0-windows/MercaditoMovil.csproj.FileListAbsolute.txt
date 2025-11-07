@@ -1,0 +1,17 @@
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.exe
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.deps.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.runtimeconfig.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Form1.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.csproj.GenerateResource.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.AssemblyInfoInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.AssemblyInfo.cs
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.csproj.CoreCompileInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.sourcelink.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\refint\MercaditoMovil.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.genruntimeconfig.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\ref\MercaditoMovil.dll
