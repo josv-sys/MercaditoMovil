@@ -1,0 +1,149 @@
+####################################
+# VISUAL STUDIO / .NET ENVIRONMENT #
+####################################
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+.idea/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+x64/
+x86/
+[Ll]og/
+[Ll]ogs/
+*.log
+
+# Build configurations
+[Dd]ebug/
+[Rr]elease/
+[Tt]emp/
+[Tt]mp/
+*.Cache
+*.dbmdl
+*.opendb
+*.pidb
+
+# Test results and coverage
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+*.vsp
+*.vspx
+*.psess
+*.vsmdi
+
+# ClickOnce / Publish
+publish/
+*.Publish.xml
+*.pubxml
+*.azurePubxml
+AppPackages/
+
+# NuGet
+packages/
+*.nupkg
+.nuget/
+!packages/repositories.config
+
+# Entity Framework migrations
+Migrations/obj/
+
+# ReSharper / JetBrains
+_ReSharper*/
+*.DotSettings.user
+
+# Backup files
+*_i.c
+*_p.c
+*_h.h
+*.bak
+*.tmp
+*~
+~$*
+*.orig
+
+# Rider / JetBrains
+.idea/
+*.iml
+
+####################################
+# PYTHON SCRIPTING ENVIRONMENT     #
+####################################
+
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# PyInstaller
+*.spec
+dist/
+build/
+
+# Python logs / caches
+*.log
+*.pytest_cache/
+*.coverage
+*.DS_Store
+
+####################################
+# PROJECT-SPECIFIC EXCLUSIONS      #
+####################################
+
+# Seeder and temporary tooling output
+MercaditoMovil.Infrastructure/Tools/Seeder/bin/
+MercaditoMovil.Infrastructure/Tools/Seeder/obj/
+
+# Python scripts cache/output
+MercaditoMovil.Infrastructure/Tools/Scripts/__pycache__/
+MercaditoMovil.Infrastructure/Tools/Scripts/*.pyc
+MercaditoMovil.Infrastructure/Tools/Scripts/*.log
+
+# Generated CSVs (keep originals if needed)
+MercaditoMovil.Infrastructure/DataFiles/**/*.bak
+MercaditoMovil.Infrastructure/DataFiles/**/*.tmp
+MercaditoMovil.Infrastructure/DataFiles/Commerce/products_view.csv
+
+# Optional: ignore all CSVs except locations (comment out if you want to version data)
+# MercaditoMovil.Infrastructure/DataFiles/**/*.csv
+!MercaditoMovil.Infrastructure/DataFiles/GeoLocations/locations.csv
+
+# Windows / Mac detritus
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.directory
+
+####################################
+# GENERAL SAFETY                   #
+####################################
+
+# Ignore compiled executables or backups
+*.exe
+*.dll
+*.pdb
+*.7z
+*.zip
+*.rar
+*.tar
+*.gz
+*.bak
+
+# Ignore VS Copilot / IntelliCode indices
+.vs/MercaditoMovil/CopilotIndices/
+.vs/MercaditoMovil/FileContentIndex/
