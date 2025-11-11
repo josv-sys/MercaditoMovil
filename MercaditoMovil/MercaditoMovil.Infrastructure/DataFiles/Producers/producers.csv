@@ -1,0 +1,31 @@
+ProducerId,ProducerCode,NationalId,Name,Email,Phone,MarketId,UserId,IsActive
+PR-285,PDCR-784,690894259,Sofia Lopez Hernandez,sofia.lopez93@gmail.com,79455497,MKT-008,,true
+PR-994,PDCR-980,958245835,Rafael Acosta Viquez,rafael.acosta17@gmail.com,72459363,MKT-011,,true
+PR-967,PDCR-192,216417500,Bianca Barrantes Gomez,bianca.barrantes50@proton.me,73178975,MKT-001,,true
+PR-811,PDCR-821,750573058,Luis Hernandez Solano,luis.hernandez43@gmail.com,72969553,MKT-011,,true
+PR-548,PDCR-257,578899174,Patricia Castro Navarro,patricia.castro95@gmail.com,63269091,MKT-015,,true
+PR-306,PDCR-181,335863878,Hugo Campos Vargas,hugo.campos92@yahoo.com,83986263,MKT-007,,true
+PR-112,PDCR-837,878670517,Tomas Rojas Vargas,tomas.rojas18@duck.com,68947753,MKT-009,,true
+PR-613,PDCR-921,182573945,Diego Perez Solano,diego.perez70@yahoo.com,68789388,MKT-011,,true
+PR-572,PDCR-628,938500362,Diego Salas Araya,diego.salas86@duck.com,62732678,MKT-002,,true
+PR-318,PDCR-510,331619543,Jose Zuniga Esquivel,jose.zuniga1@hotmail.com,61603355,MKT-006,,true
+PR-578,PDCR-278,136625005,Javier Zuniga Esquivel,javier.zuniga71@gmail.com,79652061,MKT-009,,true
+PR-140,PDCR-818,377177647,Daniel Gomez Zuniga,daniel.gomez2@proton.me,75671179,MKT-015,,true
+PR-409,PDCR-548,182140023,Adrian Esquivel Navarro,adrian.esquivel4@gmail.com,64731251,MKT-002,,true
+PR-715,PDCR-802,214731870,Hugo Lopez Castro,hugo.lopez67@duck.com,79292792,MKT-008,,true
+PR-351,PDCR-195,305247945,Rafael Cortes Quesada,rafael.cortes82@duck.com,71632501,MKT-001,,true
+PR-949,PDCR-312,732901054,Tomas Acosta Araya,tomas.acosta89@yahoo.com,77087251,MKT-011,,true
+PR-603,PDCR-532,438309759,Javier Acosta Chacon,javier.acosta28@duck.com,72879920,MKT-002,,true
+PR-892,PDCR-642,197386564,Erick Zuniga Jimenez,erick.zuniga46@proton.me,66401565,MKT-005,,true
+PR-485,PDCR-480,462192066,Cafe Grecia,ventas.cafegrec@gmail.com,71335581,MKT-007,,true
+PR-726,PDCR-540,488249890,Montaña Aranjuez,contacto@montañaara.cr,70274366,MKT-010,,true
+PR-125,PDCR-469,466000632,Agro La Pradera,ventas.agrolapr@icloud.com,73329103,MKT-013,,true
+PR-331,PDCR-718,249736910,Finca Belen,contacto@fincabelen.cr,79665537,MKT-015,,true
+PR-135,PDCR-671,461776403,Huerta Aranjuez,contacto@huertaaran.cr,77596124,MKT-005,,true
+PR-867,PDCR-453,389488101,Cafe Talamanca,ventas.cafetala@proton.me,69511165,MKT-014,,true
+PR-590,PDCR-306,552253890,Mieles Turrialba,ventas.mielestu@icloud.com,85027502,MKT-010,,true
+PR-920,PDCR-193,521956731,Montaña Paraiso,ventas.montañap@gmail.com,78742830,MKT-007,,true
+PR-818,PDCR-597,453167727,Verduras Mercedes,contacto@verdurasme.cr,67095812,MKT-014,,true
+PR-490,PDCR-592,331445082,Montaña San Sebastian,contacto@montañasan.cr,66978376,MKT-010,,true
+PR-996,PDCR-139,137138228,Finca Volcanes,contacto@fincavolca.cr,71504324,MKT-002,,true
+PR-123,PDCR-285,277170790,Agro Paraiso,contacto@agroparais.cr,79611741,MKT-008,,true

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "R2xTcOI5tv4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Infrastructure\\MercaditoMovil.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\villa\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,104 @@
+ProductCatalogId,Name,Unit,IsActive
+CAT-0001,Tomate,kg,true
+CAT-0002,Cebolla amarilla,kg,true
+CAT-0003,Cebolla morada,kg,true
+CAT-0004,Papa blanca,kg,true
+CAT-0005,Papa roja,kg,true
+CAT-0006,Zanahoria,kg,true
+CAT-0007,Chayote,kg,true
+CAT-0008,Ayote sazon,kg,true
+CAT-0009,Chile dulce,kg,true
+CAT-0010,Pepino,kg,true
+CAT-0011,Lechuga romana,unidad,true
+CAT-0012,Lechuga americana,unidad,true
+CAT-0013,Repollo verde,kg,true
+CAT-0014,Repollo morado,kg,true
+CAT-0015,Culantro,manojo,true
+CAT-0016,Cilantro,manojo,true
+CAT-0017,Apio,manojo,true
+CAT-0018,Yuca,kg,true
+CAT-0019,Camote,kg,true
+CAT-0020,Platano verde,kg,true
+CAT-0021,Banano,kg,true
+CAT-0022,Limon mesino,kg,true
+CAT-0023,Naranja,kg,true
+CAT-0024,Mandarina,kg,true
+CAT-0025,Mango,kg,true
+CAT-0026,Papaya,kg,true
+CAT-0027,Pina,kg,true
+CAT-0028,Fresa,kg,true
+CAT-0029,Sandia,kg,true
+CAT-0030,Melon,kg,true
+CAT-0031,Aguacate,unidad,true
+CAT-0032,Guayaba,kg,true
+CAT-0033,Maracuya,kg,true
+CAT-0034,Hierbabuena,manojo,true
+CAT-0035,Albahaca,manojo,true
+CAT-0036,Romero,manojo,true
+CAT-0037,Tomillo,manojo,true
+CAT-0038,Oregano,manojo,true
+CAT-0039,Huevo AA,docena,true
+CAT-0040,Huevo A,docena,true
+CAT-0041,Queso fresco,kg,true
+CAT-0042,Queso tierno,kg,true
+CAT-0043,Queso mozzarella,kg,true
+CAT-0044,Leche entera,litro,true
+CAT-0045,Leche deslactosada,litro,true
+CAT-0046,Yogur natural,litro,true
+CAT-0047,Crema,litro,true
+CAT-0048,Mantequilla,kg,true
+CAT-0049,Miel de abeja,kg,true
+CAT-0050,Pan cuadrado,unidad,true
+CAT-0051,Pan baguette,unidad,true
+CAT-0052,Arroz blanco,kg,true
+CAT-0053,Frijol negro,kg,true
+CAT-0054,Frijol rojo,kg,true
+CAT-0055,Lenteja,kg,true
+CAT-0056,Garbanzos,kg,true
+CAT-0057,Azucar,kg,true
+CAT-0058,Sal yodada,kg,true
+CAT-0059,Cafe molido,kg,true
+CAT-0060,Cacao en polvo,kg,true
+CAT-0061,Aceite vegetal,litro,true
+CAT-0062,Aceite de oliva,litro,true
+CAT-0063,Harina de trigo,kg,true
+CAT-0064,Harina de maiz,kg,true
+CAT-0065,Tortillas de maiz,paquete 500g,true
+CAT-0066,Pasta corta,kg,true
+CAT-0067,Pasta larga,kg,true
+CAT-0068,Avena,kg,true
+CAT-0069,Granola,kg,true
+CAT-0070,Almendra,kg,true
+CAT-0071,Nuez,kg,true
+CAT-0072,Mani,kg,true
+CAT-0073,Salsa de tomate,litro,true
+CAT-0074,Salsa inglesa,litro,true
+CAT-0075,Mostaza,litro,true
+CAT-0076,Mayonesa,litro,true
+CAT-0077,Vinagre,litro,true
+CAT-0078,Atun en agua,unidad,true
+CAT-0079,Atun en aceite,unidad,true
+CAT-0080,Sardinas,unidad,true
+CAT-0081,Filete de tilapia,kg,true
+CAT-0082,Filete de corvina,kg,true
+CAT-0083,Pechuga de pollo,kg,true
+CAT-0084,Muslo de pollo,kg,true
+CAT-0085,Carne molida,kg,true
+CAT-0086,Bistec de res,kg,true
+CAT-0087,Cerdo lomo,kg,true
+CAT-0088,Chorizo,kg,true
+CAT-0089,Hongos champinon,kg,true
+CAT-0090,Hongos portobello,kg,true
+CAT-0091,Brocoli,kg,true
+CAT-0092,Coliflor,kg,true
+CAT-0093,Berenjena,kg,true
+CAT-0094,Remolacha,kg,true
+CAT-0095,Nabo,kg,true
+CAT-0096,Pepinillos,kg,true
+CAT-0097,Acelga,manojo,true
+CAT-0098,Espinaca,manojo,true
+CAT-0099,Uvas,kg,true
+CAT-0100,Pera,kg,true
+CAT-0101,Manzana,kg,true
+CAT-0102,Durazno,kg,true
+CAT-0103,Ciruela,kg,true

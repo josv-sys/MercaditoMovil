@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercaditoMovil.Views.Winforms", "MercaditoMovil\MercaditoMovil.Views.Winforms.csproj", "{00A2FCA2-F27A-4528-83A0-2B4F49A966D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercaditoMovil.Domain", "Mercadito.Domain\MercaditoMovil.Domain.csproj", "{1177C47F-BE05-4F47-A74F-46F09C71BC27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercaditoMovil.Infrastructure", "MercaditoMovil.Infrastructure\MercaditoMovil.Infrastructure.csproj", "{528F983B-7569-4D19-90CA-34A6B2B37A40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercaditoMovil.Application", "MercaditoMovil.Application\MercaditoMovil.Application.csproj", "{B6446532-A831-43A4-87F3-71DDF5194311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercaditoMovil.Shared", "MercaditoMovil.Shared\MercaditoMovil.Shared.csproj", "{4406230D-DEF1-4941-8AEF-5616C9907520}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A2FCA2-F27A-4528-83A0-2B4F49A966D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A2FCA2-F27A-4528-83A0-2B4F49A966D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A2FCA2-F27A-4528-83A0-2B4F49A966D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A2FCA2-F27A-4528-83A0-2B4F49A966D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1177C47F-BE05-4F47-A74F-46F09C71BC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1177C47F-BE05-4F47-A74F-46F09C71BC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1177C47F-BE05-4F47-A74F-46F09C71BC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1177C47F-BE05-4F47-A74F-46F09C71BC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{528F983B-7569-4D19-90CA-34A6B2B37A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528F983B-7569-4D19-90CA-34A6B2B37A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528F983B-7569-4D19-90CA-34A6B2B37A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528F983B-7569-4D19-90CA-34A6B2B37A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6446532-A831-43A4-87F3-71DDF5194311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6446532-A831-43A4-87F3-71DDF5194311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6446532-A831-43A4-87F3-71DDF5194311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6446532-A831-43A4-87F3-71DDF5194311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4406230D-DEF1-4941-8AEF-5616C9907520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4406230D-DEF1-4941-8AEF-5616C9907520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4406230D-DEF1-4941-8AEF-5616C9907520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4406230D-DEF1-4941-8AEF-5616C9907520}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03FBC244-A760-44A7-BCAE-E4E22B977893}
+	EndGlobalSection
+EndGlobal
