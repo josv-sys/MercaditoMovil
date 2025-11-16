@@ -8,43 +8,49 @@ namespace MercaditoMovil.Views.WinForms
 {
     public partial class FrmLogin : MaterialForm
     {
-        private readonly AuthService _authService;
+        private readonly AuthService _auth;
 
         public FrmLogin()
         {
             InitializeComponent();
-            _authService = new AuthService();
+            _auth = new AuthService();
         }
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
             string correo = TxtCorreo.Text.Trim();
-            string contrasena = TxtContrasena.Text.Trim();
+            string pass = TxtContrasena.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasena))
+            if (string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(pass))
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Atención",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Complete todos los campos.");
                 return;
             }
 
-            Usuario? usuario = _authService.IniciarSesion(correo, contrasena);
+            Usuario? usuario = _auth.IniciarSesion(correo, pass);
 
-            if (usuario != null)
+            if (usuario == null)
             {
-                MessageBox.Show($"Bienvenido {usuario.Nombre}!", "Acceso concedido",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Correo o contraseña incorrectos.");
+                return;
+            }
 
-                // Abre el formulario de carrito
-                FrmCarrito frm = new FrmCarrito(usuario);
-                frm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Correo o contraseña incorrectos.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            MessageBox.Show(
+             $"UserId: {usuario.UserId}\n" +
+             $"Nombre: {usuario.Nombre}\n" +
+             $"Correo: {usuario.Correo}\n" +
+            $"MarketId: {usuario.MarketId}",
+            "DEBUG LOGIN");
+
+
+            FrmCarrito frm = new FrmCarrito(usuario);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void LblTitulo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

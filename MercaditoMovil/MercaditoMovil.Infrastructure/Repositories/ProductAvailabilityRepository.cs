@@ -17,13 +17,9 @@ namespace MercaditoMovil.Infrastructure.Repositories
 
         public List<Producto> GetByMarket(string marketId)
         {
-            // 1. Catálogo
             var catalog = _catalogRepo.GetAll();
-
-            // 2. Precios y stock
             var availability = _producerRepo.GetAvailability();
 
-            // 3. Unión catálogo + disponibilidad
             var lista = (from c in catalog
                          join a in availability
                          on c.ProductCatalogId equals a.ProductCatalogId
@@ -34,6 +30,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
                              Unidad = c.Unidad,
                              Precio = a.Price,
                              Stock = a.Stock,
+                             Packaging = a.Packaging,
                              Activo = c.Activo
                          }).ToList();
 
@@ -41,6 +38,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
     }
 }
+
 
 
 

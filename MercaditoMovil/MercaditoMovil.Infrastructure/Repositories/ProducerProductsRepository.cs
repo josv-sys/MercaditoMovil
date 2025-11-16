@@ -16,9 +16,9 @@ namespace MercaditoMovil.Infrastructure.Repositories
                 "DataFiles", "Commerce", "producer_products.csv");
         }
 
-        public List<(string ProductCatalogId, decimal Price, int Stock)> GetAvailability()
+        public List<(string ProductCatalogId, decimal Price, int Stock, string Packaging)> GetAvailability()
         {
-            var result = new List<(string, decimal, int)>();
+            var result = new List<(string, decimal, int, string)>();
 
             if (!File.Exists(_file))
                 return result;
@@ -32,27 +32,31 @@ namespace MercaditoMovil.Infrastructure.Repositories
                     continue;
 
                 string catalogId = parts[2].Trim();
+                string packaging = parts[6].Trim(); // PACKAGING ES COLUMNA 7 (ÍNDICE 6)
 
                 // Precio
                 decimal price = 0;
                 decimal.TryParse(parts[3], NumberStyles.Any, CultureInfo.InvariantCulture, out price);
 
-                // Stock (si está vacío lo ponemos en 1)
+                // Stock
                 int stock = 0;
                 if (!int.TryParse(parts[13], out stock))
                     stock = 1;
 
-                // Solo activos
+                // Activo
                 bool active = parts[17].Trim().ToLower() == "true";
                 if (!active)
                     continue;
 
-                result.Add((catalogId, price, stock));
+                result.Add((catalogId, price, stock, packaging));
             }
 
             return result;
         }
     }
 }
+
+
+
 
 

@@ -1,56 +1,42 @@
 ﻿using System.Collections.Generic;
-using MercaditoMovil.Domain.Entities;
 using MercaditoMovil.Application.Services;
+using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Views.WinForms.Controllers
 {
     public class FrmCarritoController
     {
-        private readonly CarritoService _service;
+        private readonly CarritoService _carritoService;
+
+        public Usuario Usuario { get; }
 
         public FrmCarritoController(Usuario usuario)
         {
-            _service = new CarritoService(usuario);
+            Usuario = usuario;
+            _carritoService = new CarritoService(usuario);
         }
 
-        // ======================================================
-        //    OBTENER FERIA DEL USUARIO
-        // ======================================================
         public Feria? ObtenerFeria()
-        {
-            return _service.ObtenerFeria();
-        }
+            => _carritoService.ObtenerFeria();
 
-        // ======================================================
-        //    OBTENER PRODUCTOS DISPONIBLES PARA LA FERIA
-        // ======================================================
         public List<Producto> ObtenerProductos()
-        {
-            return _service.ObtenerProductos();
-        }
+            => _carritoService.ObtenerProductos();
 
-        // ======================================================
-        //    AGREGAR PRODUCTO AL CARRITO
-        // ======================================================
-        public void Agregar(Producto producto)
-        {
-            _service.Agregar(producto);
-        }
+        public List<(Producto producto, int cantidad)> ObtenerCarrito()
+            => _carritoService.ObtenerCarrito();
 
-        // ======================================================
-        //    QUITAR PRODUCTO DEL CARRITO
-        // ======================================================
-        public void Quitar(Producto producto)
-        {
-            _service.Quitar(producto);
-        }
+        public void Agregar(Producto producto, int cantidad)
+            => _carritoService.Agregar(producto, cantidad);
 
-        // ======================================================
-        //    FINALIZAR COMPRA
-        // ======================================================
+        public void Quitar((Producto producto, int cantidad) item)
+            => _carritoService.Quitar(item);
+
         public bool FinalizarCompra()
-        {
-            return _service.FinalizarCompra();
-        }
+            => _carritoService.FinalizarCompra();
     }
 }
+
+
+
+
+
