@@ -1,47 +1,32 @@
-﻿using System;
-using System.Windows.Forms;
-using MercaditoMovil.Application.Services;
+﻿using MercaditoMovil.Application.Services;
 using MercaditoMovil.Domain.Entities;
+
 
 namespace MercaditoMovil.Views.WinForms.Controllers
 {
+    /// <summary>
+    /// Controller para el proceso de autenticacion en la vista.
+    /// </summary>
     public class LoginController
     {
-        private readonly AuthService _authService;
+        private readonly IAuthService _authService;
 
         public LoginController()
+            : this(new AuthService())
         {
-            _authService = new AuthService();
+        }
+
+        public LoginController(IAuthService authService)
+        {
+            _authService = authService;
         }
 
         /// <summary>
-        /// Valida las credenciales del usuario contra users.csv
+        /// Intenta autenticar un usuario con las credenciales dadas.
         /// </summary>
-        public Usuario? IniciarSesion(string correo, string contrasena)
+        public User? SignIn(string email, string password)
         {
-            try
-            {
-                var usuario = _authService.IniciarSesion(correo, contrasena);
-
-                if (usuario == null)
-                {
-                    MessageBox.Show("Correo o contraseña incorrectos.",
-                        "Error de autenticación",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return null;
-                }
-
-                return usuario;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al iniciar sesión: {ex.Message}",
-                    "Error interno",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return null;
-            }
+            return _authService.IniciarSesion(email, password);
         }
     }
 }

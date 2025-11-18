@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj": {}
+    "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj": {
+    "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj",
         "projectName": "MercaditoMovil.Shared",
-        "projectPath": "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj",
-        "packagesPath": "C:\\Users\\Fernando Madriz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\obj\\",
+        "projectPath": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\MercaditoMovil.Shared.csproj",
+        "packagesPath": "C:\\Users\\villa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fernando Madriz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\villa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

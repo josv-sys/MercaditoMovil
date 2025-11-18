@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositories\InMemory\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Repositories\InMemory\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Repositories\InMemory\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="DataFiles\People\users.csv" />
   </ItemGroup>
 
@@ -14,12 +23,6 @@
     <Content Include="DataFiles\People\users.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataFiles\Invoices\" />
-    <Folder Include="Repositories\InMemory\" />
-    <Folder Include="Services\Clock\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +41,7 @@
     <None Update="DataFiles\Commerce\producer_products.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="DataFiles\Invoices\registro_compras.csv">
+    <None Update="DataFiles\Invoices\invoice_records.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="DataFiles\Markets\markets.csv">

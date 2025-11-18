@@ -1,44 +1,91 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Domain.Interfaces;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
-    public class ProductAvailabilityRepository
+    /// <summary>
+    /// Repositorio que combina catalogo y disponibilidad para exponer productos listos para venta.
+    /// </summary>
+    public class ProductAvailabilityRepository : IProductRepository
     {
-        private readonly ProductCatalogRepository _catalogRepo;
-        private readonly ProducerProductsRepository _producerRepo;
+        private readonly ProductCatalogRepository _catalogRepository;
+        private readonly ProducerProductsRepository _producerProductsRepository;
 
         public ProductAvailabilityRepository()
         {
-            _catalogRepo = new ProductCatalogRepository();
-            _producerRepo = new ProducerProductsRepository();
+            _catalogRepository = new ProductCatalogRepository();
+            _producerProductsRepository = new ProducerProductsRepository();
         }
 
-        public List<Producto> GetByMarket(string marketId)
+        /// <inheritdoc/>
+        public List<Product> GetByMarket(string marketId)
         {
-            var catalog = _catalogRepo.GetAll();
-            var availability = _producerRepo.GetAvailability();
+            // En esta iteracion el parametro marketId no se utiliza,
+            // porque el archivo de disponibilidad no contiene campo de mercado.
+            var catalog = _catalogRepository.GetAll();
+            var availability = _producerProductsRepository.GetAvailability();
 
-            var lista = (from c in catalog
-                         join a in availability
-                         on c.ProductCatalogId equals a.ProductCatalogId
-                         select new Producto
-                         {
-                             ProductCatalogId = c.ProductCatalogId,
-                             Nombre = c.Nombre,
-                             Unidad = c.Unidad,
-                             Precio = a.Price,
-                             Stock = a.Stock,
-                             Packaging = a.Packaging,
-                             Activo = c.Activo
-                         }).ToList();
+            var result = new List<Product>();
 
-            return lista;
+            int i = 0;
+            while (i < catalog.Count)
+            {
+                Product catalogProduct = catalog[i];
+
+                int j = 0;
+                while (j < availability.Count)
+                {
+                    var a = availability[j];
+
+                    if (a.ProductCatalogId == catalogProduct.ProductCatalogId)
+                    {
+                        var product = new Product
+                        {
+                            ProductCatalogId = catalogProduct.ProductCatalogId,
+                            Name = catalogProduct.Name,
+                            Unit = catalogProduct.Unit,
+                            IsActive = catalogProduct.IsActive,
+                            Price = a.Price,
+                            Stock = a.Stock,
+                            Packaging = a.Packaging
+                        };
+
+                        result.Add(product);
+                    }
+
+                    j++;
+                }
+
+                i++;
+            }
+
+            return result;
+        }
+
+        /// <inheritdoc/>
+        public Product GetByCatalogId(string productCatalogId)
+        {
+            if (productCatalogId == null)
+            {
+                return null;
+            }
+
+            string normalized = productCatalogId.Trim();
+
+            List<Product> products = GetByMarket(string.Empty);
+
+            int i = 0;
+            while (i < products.Count)
+            {
+                if (products[i].ProductCatalogId == normalized)
+                {
+                    return products[i];
+                }
+
+                i++;
+            }
+
+            return null;
         }
     }
 }
-
-
-
-

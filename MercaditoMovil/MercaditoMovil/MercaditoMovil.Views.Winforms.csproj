@@ -9,8 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="NewFolder\" />
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MercaditoMovil.Application\MercaditoMovil.Application.csproj" />
-    <ProjectReference Include="..\MercaditoMovil.Shared\MercaditoMovil.Shared.csproj" />
   </ItemGroup>
 
 </Project>

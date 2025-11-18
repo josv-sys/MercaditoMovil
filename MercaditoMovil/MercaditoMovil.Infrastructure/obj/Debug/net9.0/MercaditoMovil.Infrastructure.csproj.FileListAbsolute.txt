@@ -22,3 +22,27 @@ C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMov
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\refint\MercaditoMovil.Infrastructure.dll
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\ref\MercaditoMovil.Infrastructure.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\People\users.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Catalogs\product_catalog.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Commerce\producer_products.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Markets\markets.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Producers\producers.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.deps.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfo.cs
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.sourcelink.json
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\Mercadit.E260211C.Up2Date
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\refint\MercaditoMovil.Infrastructure.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\ref\MercaditoMovil.Infrastructure.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Invoices\invoice_records.csv

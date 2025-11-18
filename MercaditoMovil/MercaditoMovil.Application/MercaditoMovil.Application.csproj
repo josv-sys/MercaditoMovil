@@ -7,18 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Features\NewFolder\" />
-    <Folder Include="Features\UserManagement\Commands\" />
-    <Folder Include="Features\UserManagement\Handlers\" />
-    <Folder Include="Features\UserManagement\Responses\" />
-    <Folder Include="Features\UserManagement\Queries\" />
+    <Compile Remove="Common\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <None Remove="Common\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Mercadito.Domain\MercaditoMovil.Domain.csproj" />
     <ProjectReference Include="..\MercaditoMovil.Infrastructure\MercaditoMovil.Infrastructure.csproj" />
-    <ProjectReference Include="..\MercaditoMovil.Shared\MercaditoMovil.Shared.csproj" />
   </ItemGroup>
 
 </Project>

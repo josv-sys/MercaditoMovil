@@ -9,8 +9,7 @@
       "MercaditoMovil.Application/1.0.0": {
         "dependencies": {
           "MercaditoMovil.Domain": "1.0.0",
-          "MercaditoMovil.Infrastructure": "1.0.0",
-          "MercaditoMovil.Shared": "1.0.0"
+          "MercaditoMovil.Infrastructure": "1.0.0"
         },
         "runtime": {
           "MercaditoMovil.Application.dll": {}
