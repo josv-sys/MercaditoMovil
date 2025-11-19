@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
 using MercaditoMovil.Views.WinForms.Controllers;
 using MercaditoMovil.Views.WinForms.Models;
+using MercaditoMovil.Views.WinForms.Views;
+
+
 
 namespace MercaditoMovil.Views.WinForms
 {
@@ -191,12 +191,13 @@ namespace MercaditoMovil.Views.WinForms
                 return;
             }
 
-            // Check if product is already in cart
+            // Look for existing item with same product and producer
             CartItemViewModel existing = null;
 
             for (int i = 0; i < _cart.Count; i++)
             {
-                if (_cart[i].ProductName == p.Name)
+                if (_cart[i].ProductCatalogId == p.ProductCatalogId &&
+                    _cart[i].ProducerId == p.ProducerId)
                 {
                     existing = _cart[i];
                     break;
@@ -210,6 +211,8 @@ namespace MercaditoMovil.Views.WinForms
             else
             {
                 CartItemViewModel item = new CartItemViewModel();
+                item.ProductCatalogId = p.ProductCatalogId;
+                item.ProducerId = p.ProducerId;
                 item.ProductName = p.Name;
                 item.Quantity = quantity;
                 item.UnitPrice = p.Price;
@@ -222,6 +225,7 @@ namespace MercaditoMovil.Views.WinForms
 
             NudCantidad.Value = 1;
         }
+
 
         /// <summary>
         /// Refreshes the cart ListView.
@@ -284,28 +288,49 @@ namespace MercaditoMovil.Views.WinForms
         }
 
         /// <summary>
-        /// Generates invoice and opens InvoiceForm.
-        /// In next iteration this will also update inventory.
+        /// shows the inventory form.
+        /// see InventoryForm.cs for more details.
+        /// <summary>
+        private void BtnInventory_Click(object sender, EventArgs e)
+        {
+            InventoryForm inv = new InventoryForm();
+            inv.ShowDialog();
+        }
+
+
+        /// <summary>
+        /// Handles checkout button click. Opens invoice form.
         /// </summary>
         private void BtnCheckout_Click(object sender, EventArgs e)
         {
-            if (_cart.Count == 0)
+            if (_cart == null || _cart.Count == 0)
             {
-                MessageBox.Show("No hay productos en el carrito.");
+                MessageBox.Show(
+                    "No hay productos en el carrito.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 return;
             }
 
-            string paymentMethod = RbSinpe.Checked ? "SINPE Movil" : "Efectivo";
+            string payment = RbSinpe.Checked ? "SINPE Movil" : "Cash";
 
-            _controller.SaveInvoice(_currentUser, _cart, paymentMethod);
+            // Example label text: "Feria: Feria del Agricultor Cartago Centro"
+            string labelText = LblMarket.Text ?? string.Empty;
+            string marketName = labelText.StartsWith("Feria: ")
+                ? labelText.Substring("Feria: ".Length)
+                : labelText;
 
-            InvoiceForm invoiceForm = new InvoiceForm(_currentUser, _cart, paymentMethod);
-            invoiceForm.ShowDialog();
+            InvoiceForm form = new InvoiceForm(
+                _currentUser,
+                _cart,
+                payment,
+                marketName,
+                _controller,       // important: controller passed here
+                () => this.Show());
 
-            // Optionally clear cart after invoicing
-            // _cart.Clear();
-            // RefreshCartList();
-            // UpdateTotal();
+            this.Hide();
+            form.Show();
         }
     }
 }

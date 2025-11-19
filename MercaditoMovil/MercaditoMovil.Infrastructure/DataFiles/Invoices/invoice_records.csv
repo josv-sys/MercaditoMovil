@@ -1,14 +1,3 @@
-Fecha,Usuario,Feria,Producto,Cantidad,PrecioUnitario,TotalLinea
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Tomate,10,1079,85,10798,50
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Cebolla amarilla,10,1621,63,16216,30
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Cebolla amarilla,10,1576,32,15763,20
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Cebolla morada,10,1121,64,11216,40
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,1023,19,10231,90
-2025-11-16 13:42:38,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,1282,76,12827,60
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Tomate,10,1079,85,10798,50
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Cebolla amarilla,10,1621,63,16216,30
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Cebolla morada,10,1121,64,11216,40
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,1023,19,10231,90
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,1282,76,12827,60
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,688,55,6885,50
-2025-11-16 13:47:54,Luis Fernando Madriz Fonseca,Feria del Agricultor Grecia,Papa roja,10,688,55,6885,50
+InvoiceId,UserId,UserName,MarketId,MarketName,ProducerId,ProductCatalogId,ProductName,Quantity,UnitPrice,TotalPrice,PaymentMethod,InvoiceDateTime
+INV-0001,USR-001,Juan Perez,MKT-0001,San Jose Central,PR-450,CAT-0010,Tomate Cherry,3,550,1650,SinpeMovil,2025-11-19 14:33:20
+INV-0002,USR-002,Ana Lopez,MKT-0003,Alajuela Oeste,PR-233,CAT-0022,Lechuga Organica,2,700,1400,Efectivo,2025-11-19 14:35:10

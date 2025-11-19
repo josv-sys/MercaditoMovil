@@ -20,7 +20,6 @@
         private System.Windows.Forms.ColumnHeader ColProdPrice;
         private System.Windows.Forms.ColumnHeader ColProdUnit;
         private System.Windows.Forms.ColumnHeader ColProdPack;
-        private System.Windows.Forms.ColumnHeader ColProdStock;
 
         private System.Windows.Forms.ColumnHeader ColCartName;
         private System.Windows.Forms.ColumnHeader ColCartQty;
@@ -38,6 +37,7 @@
 
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Button BtnCheckout;
+        private System.Windows.Forms.Button BtnInventory;
 
         protected override void Dispose(bool disposing)
         {
@@ -50,7 +50,6 @@
         {
             components = new System.ComponentModel.Container();
 
-            // Colores principales
             System.Drawing.Color bg = System.Drawing.Color.FromArgb(245, 238, 230);
             System.Drawing.Color panel = System.Drawing.Color.FromArgb(220, 205, 190);
             System.Drawing.Color text = System.Drawing.Color.FromArgb(80, 60, 50);
@@ -104,15 +103,14 @@
             LvProducts.BackColor = panel;
             LvProducts.ForeColor = text;
 
-            ColProdName = new System.Windows.Forms.ColumnHeader() { Text = "Producto", Width = 120 };
+            ColProdName = new System.Windows.Forms.ColumnHeader() { Text = "Producto", Width = 150 };
             ColProdPrice = new System.Windows.Forms.ColumnHeader() { Text = "Precio", Width = 80 };
             ColProdUnit = new System.Windows.Forms.ColumnHeader() { Text = "Unidad", Width = 80 };
-            ColProdPack = new System.Windows.Forms.ColumnHeader() { Text = "Empaque", Width = 100 };
-            ColProdStock = new System.Windows.Forms.ColumnHeader() { Text = "Stock", Width = 60 };
+            ColProdPack = new System.Windows.Forms.ColumnHeader() { Text = "Empaque", Width = 120 };
 
             LvProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[]
             {
-                ColProdName, ColProdPrice, ColProdUnit, ColProdPack, ColProdStock
+                ColProdName, ColProdPrice, ColProdUnit, ColProdPack
             });
 
             // ======== Selector de cantidad ========
@@ -163,13 +161,13 @@
 
             // ======== Pago ========
             LblPayment = new System.Windows.Forms.Label();
-            LblPayment.Text = "Método de pago:";
+            LblPayment.Text = "Metodo de pago:";
             LblPayment.Location = new System.Drawing.Point(500, 20);
             LblPayment.AutoSize = true;
             LblPayment.ForeColor = text;
 
             RbSinpe = new System.Windows.Forms.RadioButton();
-            RbSinpe.Text = "SINPE móvil";
+            RbSinpe.Text = "SINPE movil";
             RbSinpe.Location = new System.Drawing.Point(500, 45);
             RbSinpe.ForeColor = text;
             RbSinpe.Checked = true;
@@ -195,6 +193,15 @@
             BtnCheckout.ForeColor = System.Drawing.Color.White;
             BtnCheckout.Click += BtnCheckout_Click;
 
+            // ======== Botón Inventario ========
+            BtnInventory = new System.Windows.Forms.Button();
+            BtnInventory.Text = "Ver inventario";
+            BtnInventory.Location = new System.Drawing.Point(630, 530);
+            BtnInventory.Size = new System.Drawing.Size(120, 30);
+            BtnInventory.BackColor = accent;
+            BtnInventory.ForeColor = System.Drawing.Color.White;
+            BtnInventory.Click += BtnInventory_Click;
+
             // ======== Form ========
             ClientSize = new System.Drawing.Size(980, 620);
             Controls.Add(LblCustomer);
@@ -213,6 +220,7 @@
             Controls.Add(RbCash);
             Controls.Add(LblTotal);
             Controls.Add(BtnCheckout);
+            Controls.Add(BtnInventory);
 
             Text = "Carrito de Compras";
             ResumeLayout(false);
@@ -220,3 +228,4 @@
         }
     }
 }
+

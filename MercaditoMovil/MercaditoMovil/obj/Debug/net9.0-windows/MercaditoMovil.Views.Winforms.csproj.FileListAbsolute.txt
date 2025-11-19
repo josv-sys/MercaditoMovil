@@ -37,12 +37,24 @@ C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMov
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.genruntimeconfig.cache
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\ref\MercaditoMovil.Views.Winforms.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.AssemblyReference.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.CartForm.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.InventoryForm.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.Views.InvoiceForm.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.LoginForm.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.RegistrationForm.resources
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.GenerateResource.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfoInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfo.cs
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.CoreCompileInputs.cache
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.sourcelink.json
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Locations\locations.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Commerce\producer_products.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Invoices\invoice_records.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.exe
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\People\users.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Catalogs\product_catalog.csv
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Commerce\producer_products.csv
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Invoices\invoice_records.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Markets\markets.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\Producers\producers.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.deps.json
@@ -61,17 +73,6 @@ C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\ne
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Infrastructure.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Shared.pdb
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.AssemblyReference.cache
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.CartForm.resources
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.InvoiceForm.resources
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.LoginForm.resources
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.RegistrationForm.resources
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.GenerateResource.cache
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfoInputs.cache
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfo.cs
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.CoreCompileInputs.cache
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.sourcelink.json
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\Mercadit.29E53745.Up2Date
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.dll
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\refint\MercaditoMovil.Views.Winforms.dll

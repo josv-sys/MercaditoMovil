@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MercaditoMovil.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11bf25c03d06cf93fe48053cc8243ce0d8787730")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ef35bb4c5f2c5af2f20fe4211e98833d35f359f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MercaditoMovil.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MercaditoMovil.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,25 +1,30 @@
-﻿using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Infrastructure.Repositories;
-using MercaditoMovil.Views.WinForms.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
+using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Views.WinForms.Models;
 
-namespace MercaditoMovil.Views.WinForms.Repositories
+namespace MercaditoMovil.Views.WinForms.InvoiceRepository
 {
     /// <summary>
-    /// Saves invoice records into invoice_records.csv.
-    /// Lives in WinForms layer because it uses view models.
+    /// Handles invoice persistence in invoice_records.csv.
     /// </summary>
     public class InvoiceRepository
     {
         private readonly string _filePath;
 
+        /// <summary>
+        /// Initializes repository and ensures CSV file exists.
+        /// </summary>
         public InvoiceRepository()
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
             _filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
+                baseDir,
                 "DataFiles",
                 "Invoices",
                 "invoice_records.csv");
@@ -28,67 +33,103 @@ namespace MercaditoMovil.Views.WinForms.Repositories
         }
 
         /// <summary>
-        /// Creates CSV file if missing.
+        /// Creates invoice file with header if it does not exist.
         /// </summary>
         private void EnsureFileExists()
         {
-            string dir = Path.GetDirectoryName(_filePath);
-            Directory.CreateDirectory(dir);
-
             if (!File.Exists(_filePath))
             {
                 string header =
-                    "InvoiceId,Date,UserId,UserName,PaymentMethod," +
-                    "ProductName,Unit,Packaging,UnitPrice,Quantity,Amount";
+                    "InvoiceId,UserId,UserName,MarketId,MarketName," +
+                    "ProducerId,ProductCatalogId,ProductName,Quantity," +
+                    "UnitPrice,TotalPrice,PaymentMethod,InvoiceDateTime";
 
+                Directory.CreateDirectory(Path.GetDirectoryName(_filePath));
                 File.WriteAllText(_filePath, header + Environment.NewLine, Encoding.UTF8);
             }
         }
 
         /// <summary>
-        /// Saves invoice lines into CSV.
+        /// Saves a complete invoice for the given user and cart.
+        /// Each cart item becomes one line in invoice_records.csv.
+        /// Returns true when append operation was successful.
         /// </summary>
-        public void SaveInvoice(User user, List<CartItemViewModel> cart, string paymentMethod)
+        public bool SaveInvoice(
+            User user,
+            List<CartItemViewModel> cart,
+            string paymentMethod,
+            string marketName)
         {
-            string invoiceId = Guid.NewGuid().ToString();
-            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            if (user == null || cart == null || cart.Count == 0)
+            {
+                return false;
+            }
 
-            var products = new ProductAvailabilityRepository().GetAll();
+            const decimal salesTaxRate = 0.13m;   // Costa Rica VAT
+            const decimal serviceFeeRate = 0.02m; // App service fee
 
-            StringBuilder sb = new StringBuilder();
+            string invoiceId = Guid.NewGuid().ToString("N").Substring(0, 12);
+            string safeMarketName = Safe(marketName ?? "Unknown");
+
+            var lines = new List<string>();
 
             for (int i = 0; i < cart.Count; i++)
             {
                 CartItemViewModel item = cart[i];
-                Product p = FindProduct(products, item.ProductName);
 
-                string line =
+                decimal baseAmount = item.UnitPrice * item.Quantity;
+                decimal taxAmount = baseAmount * salesTaxRate;
+                decimal serviceAmount = baseAmount * serviceFeeRate;
+                decimal totalWithTaxes = baseAmount + taxAmount + serviceAmount;
+
+                string csvLine =
                     invoiceId + "," +
-                    date + "," +
                     user.UserId + "," +
-                    user.FirstName + " " + user.LastName1 + " " + user.LastName2 + "," +
-                    paymentMethod + "," +
-                    item.ProductName + "," +
-                    p.Unit + "," +
-                    p.Packaging + "," +
-                    p.Price + "," +
+                    Safe(user.FirstName + " " + user.LastName1 + " " + user.LastName2) + "," +
+                    user.MarketId + "," +
+                    safeMarketName + "," +
+                    item.ProducerId + "," +
+                    item.ProductCatalogId + "," +
+                    Safe(item.ProductName) + "," +
                     item.Quantity + "," +
-                    item.Total;
+                    item.UnitPrice.ToString(CultureInfo.InvariantCulture) + "," +
+                    totalWithTaxes.ToString(CultureInfo.InvariantCulture) + "," +
+                    paymentMethod + "," +
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                sb.AppendLine(line);
+                lines.Add(csvLine);
             }
 
-            File.AppendAllText(_filePath, sb.ToString(), Encoding.UTF8);
+            try
+            {
+                File.AppendAllLines(_filePath, lines, Encoding.UTF8);
+                return true;
+            }
+            catch (IOException)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar la factura porque el archivo invoice_records.csv " +
+                    "esta siendo usado por otro programa (por ejemplo Excel). " +
+                    "Cierre el archivo y vuelva a intentar.",
+                    "Error al guardar la factura",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
         }
 
-        private Product FindProduct(List<Product> list, string name)
+        /// <summary>
+        /// Sanitizes strings for CSV output (removes commas and trims).
+        /// </summary>
+        private string Safe(string value)
         {
-            for (int i = 0; i < list.Count; i++)
+            if (string.IsNullOrWhiteSpace(value))
             {
-                if (list[i].Name == name)
-                    return list[i];
+                return string.Empty;
             }
-            return null;
+
+            return value.Replace(",", ";").Trim();
         }
     }
 }
