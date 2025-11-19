@@ -1,91 +1,75 @@
-﻿using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio que combina catalogo y disponibilidad para exponer productos listos para venta.
+    /// Loads product availability from producer_products.csv.
+    /// Adapted to the real CSV structure.
     /// </summary>
-    public class ProductAvailabilityRepository : IProductRepository
+    public class ProductAvailabilityRepository
     {
-        private readonly ProductCatalogRepository _catalogRepository;
-        private readonly ProducerProductsRepository _producerProductsRepository;
+        private readonly string _filePath;
+        private readonly ProductCatalogRepository _catalogRepo = new ProductCatalogRepository();
 
         public ProductAvailabilityRepository()
         {
-            _catalogRepository = new ProductCatalogRepository();
-            _producerProductsRepository = new ProducerProductsRepository();
+            _filePath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "Commerce",
+                "producer_products.csv");
         }
 
-        /// <inheritdoc/>
-        public List<Product> GetByMarket(string marketId)
+        public List<Product> GetAll()
         {
-            // En esta iteracion el parametro marketId no se utiliza,
-            // porque el archivo de disponibilidad no contiene campo de mercado.
-            var catalog = _catalogRepository.GetAll();
-            var availability = _producerProductsRepository.GetAvailability();
+            var list = new List<Product>();
 
-            var result = new List<Product>();
+            if (!File.Exists(_filePath))
+                return list;
 
-            int i = 0;
-            while (i < catalog.Count)
+            string[] lines = File.ReadAllLines(_filePath, Encoding.UTF8);
+
+            var catalog = _catalogRepo.GetCatalog(); // catalogId -> name
+
+            for (int i = 1; i < lines.Length; i++)
             {
-                Product catalogProduct = catalog[i];
+                string line = lines[i];
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
 
-                int j = 0;
-                while (j < availability.Count)
-                {
-                    var a = availability[j];
+                string[] c = line.Split(',');
 
-                    if (a.ProductCatalogId == catalogProduct.ProductCatalogId)
-                    {
-                        var product = new Product
-                        {
-                            ProductCatalogId = catalogProduct.ProductCatalogId,
-                            Name = catalogProduct.Name,
-                            Unit = catalogProduct.Unit,
-                            IsActive = catalogProduct.IsActive,
-                            Price = a.Price,
-                            Stock = a.Stock,
-                            Packaging = a.Packaging
-                        };
+                string producerId = c[1];
+                string catalogId = c[2];
+                decimal price = decimal.Parse(c[3]);
+                string packaging = c[6];
+                int stock = int.Parse(c[13]);
 
-                        result.Add(product);
-                    }
+                string productName = catalog.ContainsKey(catalogId)
+                    ? catalog[catalogId]
+                    : "Producto";
 
-                    j++;
-                }
+                // Use packaging as Unit (closest real value)
+                string unit = packaging;
 
-                i++;
+                Product p = new Product(
+                    catalogId,
+                    producerId,
+                    productName,
+                    unit,
+                    packaging,
+                    price,
+                    stock
+                );
+
+                list.Add(p);
             }
 
-            return result;
-        }
-
-        /// <inheritdoc/>
-        public Product GetByCatalogId(string productCatalogId)
-        {
-            if (productCatalogId == null)
-            {
-                return null;
-            }
-
-            string normalized = productCatalogId.Trim();
-
-            List<Product> products = GetByMarket(string.Empty);
-
-            int i = 0;
-            while (i < products.Count)
-            {
-                if (products[i].ProductCatalogId == normalized)
-                {
-                    return products[i];
-                }
-
-                i++;
-            }
-
-            return null;
+            return list;
         }
     }
 }

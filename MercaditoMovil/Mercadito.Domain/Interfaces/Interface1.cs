@@ -1,35 +1,34 @@
-﻿using System.Collections.Generic;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Domain.Interfaces.Repositories
 {
     /// <summary>
-    /// Define las operaciones basicas para trabajar con usuarios.
+    /// Repository abstraction for working with users.
     /// </summary>
     public interface IUserRepository
     {
         /// <summary>
-        /// Devuelve la lista completa de usuarios.
+        /// Returns all users.
         /// </summary>
         List<User> GetAll();
 
         /// <summary>
-        /// Devuelve un usuario por su nombre de usuario o null cuando no existe.
+        /// Returns a user by username or null when it does not exist.
         /// </summary>
         User? GetByUsername(string username);
 
         /// <summary>
-        /// Indica si el nombre de usuario ya existe.
+        /// Indicates whether a username already exists.
         /// </summary>
         bool UsernameExists(string username);
 
         /// <summary>
-        /// Indica si la cedula ya existe.
+        /// Indicates whether a national ID already exists.
         /// </summary>
         bool NationalIdExists(string nationalId);
 
         /// <summary>
-        /// Agrega un nuevo usuario al origen de datos.
+        /// Adds a new user to the data source.
         /// </summary>
         User Add(User user);
     }

@@ -1,19 +1,23 @@
-﻿using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Interfaces;
+﻿using System.Text;
+using MercaditoMovil.Domain.Entities;
 using MercaditoMovil.Domain.Interfaces.Repositories;
-using System.Text;
+using System.Diagnostics;
+
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio de usuarios basado en archivo CSV.
+    /// User repository implementation based on a CSV file.
+    /// CSV structure (columns):
+    /// UserId, Username, Password, FirstName, FirstLastName, SecondLastName,
+    /// NationalId, Email, Phone, Address, Province, Canton, District, MarketId
     /// </summary>
     public class CsvUserRepository : IUserRepository
     {
         private readonly string _filePath;
 
         /// <summary>
-        /// Crea una instancia del repositorio usando una ruta especifica.
+        /// Creates a repository instance using a specific file path.
         /// </summary>
         public CsvUserRepository(string filePath)
         {
@@ -21,15 +25,18 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Crea una instancia del repositorio usando la ruta por defecto.
+        /// Creates a repository instance using the default users CSV path.
         /// </summary>
         public CsvUserRepository()
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            _filePath = Path.Combine(basePath, "DataFiles", "People", "users.csv");
+            _filePath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "People",
+                "users.csv");
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public List<User> GetAll()
         {
             var list = new List<User>();
@@ -41,7 +48,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
 
             string[] lines = File.ReadAllLines(_filePath, Encoding.UTF8);
 
-            // Se omite la primera linea (encabezados).
+            // Skip header line.
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
@@ -55,6 +62,22 @@ namespace MercaditoMovil.Infrastructure.Repositories
                 {
                     continue;
                 }
+
+                // CSV order:
+                // 0: UserId
+                // 1: Username
+                // 2: Password
+                // 3: FirstName
+                // 4: FirstLastName
+                // 5: SecondLastName
+                // 6: NationalId
+                // 7: Email
+                // 8: Phone
+                // 9: Address
+                // 10: Province
+                // 11: Canton
+                // 12: District
+                // 13: MarketId
 
                 var user = new User(
                     parts[0],
@@ -78,8 +101,8 @@ namespace MercaditoMovil.Infrastructure.Repositories
             return list;
         }
 
-        /// <inheritdoc/>
-        public User GetByUsername(string username)
+        /// <inheritdoc />
+        public User? GetByUsername(string username)
         {
             if (username == null)
             {
@@ -104,13 +127,13 @@ namespace MercaditoMovil.Infrastructure.Repositories
             return null;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public bool UsernameExists(string username)
         {
             return GetByUsername(username) != null;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public bool NationalIdExists(string nationalId)
         {
             if (nationalId == null)
@@ -135,10 +158,25 @@ namespace MercaditoMovil.Infrastructure.Repositories
             return false;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
+
+        /// <summary>
+        /// Adds a new user to the CSV data source.
+        /// </summary>
+        /// <param name="user">User entity to be persisted.</param>
+        /// <returns>The same user instance that was added.</returns>
         public User Add(User user)
         {
-            // Se asume que el archivo ya existe y contiene la cabecera.
+            // Ensure target directory exists before writing the file
+            string? directory = Path.GetDirectoryName(_filePath);
+            if (!string.IsNullOrEmpty(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Columns must match the CSV header:
+            // UserId, Username, Password, FirstName, FirstLastName, SecondLastName,
+            // NationalId, Email, Phone, Address, Province, Canton, District, MarketId
             string[] columns =
             {
                 user.UserId,
@@ -150,26 +188,31 @@ namespace MercaditoMovil.Infrastructure.Repositories
                 user.NationalId,
                 user.Email,
                 user.Phone,
+                user.ExactAddress, // Address
                 user.Province,
                 user.Canton,
                 user.District,
-                user.ExactAddress,
                 user.MarketId
             };
 
+            // Escape each column to be CSV safe
             for (int i = 0; i < columns.Length; i++)
             {
                 columns[i] = EscapeCsv(columns[i]);
             }
 
             string line = string.Join(",", columns);
+
+            // Append the new user as a new line in the CSV file
             File.AppendAllText(_filePath, Environment.NewLine + line, Encoding.UTF8);
 
             return user;
         }
 
+
+
         /// <summary>
-        /// Divide una linea CSV respetando comillas.
+        /// Splits a CSV line honoring quoted fields.
         /// </summary>
         private static string[] SplitCsv(string line)
         {
@@ -204,14 +247,11 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Escapa un campo CSV agregando comillas cuando es necesario.
+        /// Escapes a CSV field adding quotes when needed.
         /// </summary>
-        private static string EscapeCsv(string value)
+        private static string EscapeCsv(string? value)
         {
-            if (value == null)
-            {
-                value = string.Empty;
-            }
+            value ??= string.Empty;
 
             if (value.Contains(',') || value.Contains('\"'))
             {

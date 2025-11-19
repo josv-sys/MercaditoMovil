@@ -4,7 +4,7 @@ using MercaditoMovil.Domain.Interfaces;
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio de productores basado en archivo CSV.
+    /// Producer repository based on a CSV file.
     /// </summary>
     public class ProducerRepository : IProducerRepository
     {
@@ -19,7 +19,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
                 "producers.csv");
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public List<Producer> GetAll()
         {
             var list = new List<Producer>();
@@ -31,7 +31,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
 
             string[] lines = File.ReadAllLines(_file);
 
-            // Omitir encabezado.
+            // Skip header.
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
@@ -65,8 +65,8 @@ namespace MercaditoMovil.Infrastructure.Repositories
             return list;
         }
 
-        /// <inheritdoc/>
-        public Producer GetById(string producerId)
+        /// <inheritdoc />
+        public Producer? GetById(string producerId)
         {
             if (producerId == null)
             {
@@ -91,3 +91,4 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
     }
 }
+

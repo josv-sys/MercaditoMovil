@@ -3,7 +3,7 @@
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Lee la disponibilidad de productos de productores desde CSV.
+    /// Reads producer product availability from a CSV file.
     /// </summary>
     public class ProducerProductsRepository
     {
@@ -19,7 +19,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Devuelve la disponibilidad de productos por catalogo.
+        /// Returns product availability by catalog identifier.
         /// </summary>
         public List<(string ProductCatalogId, decimal Price, int Stock, string Packaging)> GetAvailability()
         {
@@ -32,7 +32,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
 
             string[] lines = File.ReadAllLines(_file);
 
-            // Omitir encabezado.
+            // Skip header.
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
@@ -79,3 +79,4 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
     }
 }
+

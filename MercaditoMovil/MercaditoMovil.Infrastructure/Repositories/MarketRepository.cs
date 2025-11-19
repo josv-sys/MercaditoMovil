@@ -4,7 +4,7 @@ using MercaditoMovil.Domain.Interfaces;
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio de ferias basado en archivo CSV.
+    /// Market repository based on a CSV file.
     /// </summary>
     public class MarketRepository : IMarketRepository
     {
@@ -19,7 +19,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
                 "markets.csv");
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public List<Market> GetAll()
         {
             var markets = new List<Market>();
@@ -31,7 +31,7 @@ namespace MercaditoMovil.Infrastructure.Repositories
 
             string[] lines = File.ReadAllLines(_file);
 
-            // Se omite encabezado.
+            // Skip header.
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
@@ -61,8 +61,8 @@ namespace MercaditoMovil.Infrastructure.Repositories
             return markets;
         }
 
-        /// <inheritdoc/>
-        public Market GetById(string marketId)
+        /// <inheritdoc />
+        public Market? GetById(string marketId)
         {
             if (marketId == null)
             {

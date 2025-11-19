@@ -1,74 +1,44 @@
-﻿using System.Collections.Generic;
-using MercaditoMovil.Application.Services;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Infrastructure.Repositories;
+using MercaditoMovil.Views.WinForms.Models;
+using MercaditoMovil.Views.WinForms.Repositories;
+
 
 namespace MercaditoMovil.Views.WinForms.Controllers
 {
     /// <summary>
-    /// Controller que coordina la vista del carrito con el servicio de carrito.
+    /// Coordinates cart operations with repositories.
     /// </summary>
     public class CartController
     {
-        private readonly CartService _cartService;
+        private readonly ProductAvailabilityRepository _productRepo = new ProductAvailabilityRepository();
+        private readonly ProducerRepository _producerRepo = new ProducerRepository();
+        private readonly MarketRepository _marketRepo = new MarketRepository();
+        private readonly InvoiceRepository _invoiceRepo = new InvoiceRepository();
 
-        public User CurrentUser { get; }
-
-        public CartController(User user)
+        public List<Product> GetAllProducts()
         {
-            CurrentUser = user;
-            _cartService = new CartService(user);
+            return _productRepo.GetAll();
         }
 
-        public Market? GetMarket()
+        public List<Producer> GetAllProducers()
         {
-            return _cartService.ObtenerFeria();
+            return _producerRepo.GetAll();
         }
 
-        public List<Product> GetProducts()
+        public Producer GetProducerById(string id)
         {
-            return _cartService.ObtenerProductos();
+            return _producerRepo.GetById(id);
         }
 
-        /// <summary>
-        /// Devuelve la lista cruda de items del carrito.
-        /// </summary>
-        public List<(Product product, int quantity)> GetCartItemsRaw()
+        public Market GetMarketById(string id)
         {
-            return _cartService.ObtenerCarrito();
+            return _marketRepo.GetById(id);
         }
 
-        public void AddItem(Product product, int quantity)
+        public void SaveInvoice(User user, List<CartItemViewModel> cart, string payment)
         {
-            _cartService.Agregar(product, quantity);
-        }
-
-        /// <summary>
-        /// Quita un item del carrito por indice.
-        /// </summary>
-        public void RemoveItemAt(int index)
-        {
-            var items = _cartService.ObtenerCarrito();
-            if (index < 0 || index >= items.Count)
-            {
-                return;
-            }
-
-            _cartService.Quitar(items[index]);
-        }
-
-        public bool Checkout()
-        {
-            return _cartService.FinalizarCompra();
-        }
-
-        public string GetUserFullName()
-        {
-            string f = CurrentUser.FirstName ?? string.Empty;
-            string l1 = CurrentUser.LastName1 ?? string.Empty;
-            string l2 = CurrentUser.LastName2 ?? string.Empty;
-
-            return (f + " " + l1 + " " + l2).Trim();
+            _invoiceRepo.SaveInvoice(user, cart, payment);
         }
     }
 }
-

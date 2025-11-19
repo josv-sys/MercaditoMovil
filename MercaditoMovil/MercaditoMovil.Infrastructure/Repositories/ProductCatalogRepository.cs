@@ -1,17 +1,23 @@
-﻿using MercaditoMovil.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio del catalogo base de productos.
+    /// Reads the general product catalog information.
+    /// This catalog does NOT create Product objects because Product
+    /// is created from producer_products.csv (availability file).
     /// </summary>
     public class ProductCatalogRepository
     {
-        private readonly string _file;
+        private readonly string _filePath;
 
         public ProductCatalogRepository()
         {
-            _file = Path.Combine(
+            _filePath = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 "DataFiles",
                 "Catalogs",
@@ -19,51 +25,37 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Devuelve todos los productos del catalogo base.
+        /// Returns the internal catalog as dictionary: catalogId -> name.
         /// </summary>
-        public List<Product> GetAll()
+        public Dictionary<string, string> GetCatalog()
         {
-            var list = new List<Product>();
+            var dict = new Dictionary<string, string>();
 
-            if (!File.Exists(_file))
-            {
-                return list;
-            }
+            if (!File.Exists(_filePath))
+                return dict;
 
-            string[] lines = File.ReadAllLines(_file);
+            string[] lines = File.ReadAllLines(_filePath, Encoding.UTF8);
 
-            // Omitir encabezado.
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
                 if (string.IsNullOrWhiteSpace(line))
-                {
                     continue;
-                }
 
-                string[] parts = line.Split(',');
-                if (parts.Length < 4)
-                {
-                    continue;
-                }
+                string[] c = line.Split(',');
 
-                var product = new Product
-                {
-                    ProductCatalogId = parts[0].Trim(),
-                    Name = parts[1].Trim(),
-                    Unit = parts[2].Trim(),
-                    IsActive = parts[3].Trim().ToLower() == "true",
-                    Price = 0,
-                    Stock = 0,
-                    Packaging = string.Empty
-                };
+                string id = c[0];
+                string name = c[1];
 
-                list.Add(product);
+                if (!dict.ContainsKey(id))
+                    dict.Add(id, name);
             }
 
-            return list;
+            return dict;
         }
     }
 }
+
+
 
 

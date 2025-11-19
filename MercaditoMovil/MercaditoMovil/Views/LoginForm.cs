@@ -6,7 +6,7 @@ using MercaditoMovil.Views.WinForms.Controllers;
 namespace MercaditoMovil.Views.WinForms
 {
     /// <summary>
-    /// Formulario de inicio de sesion.
+    /// Login form used to authenticate the user.
     /// </summary>
     public partial class LoginForm : Form
     {
@@ -32,6 +32,13 @@ namespace MercaditoMovil.Views.WinForms
 
             CartForm form = new CartForm(user);
             form.Show();
+            Hide();
+        }
+
+        private void BtnOpenRegistration_Click(object sender, EventArgs e)
+        {
+            var registrationForm = new RegistrationForm(this);
+            registrationForm.Show();
             Hide();
         }
     }

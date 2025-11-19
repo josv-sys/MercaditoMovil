@@ -5,10 +5,9 @@
         private System.ComponentModel.IContainer components = null;
 
         private System.Windows.Forms.Label LblCustomer;
-        private System.Windows.Forms.Label LblMarket;
+        private System.Windows.Forms.Label LblPayment;
+        private System.Windows.Forms.ListBox ListInvoice;
         private System.Windows.Forms.Label LblTotal;
-        private System.Windows.Forms.ListBox ListItems;
-        private System.Windows.Forms.Button BtnClose;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,37 +18,39 @@
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+
+            this.BackColor = System.Drawing.Color.FromArgb(245, 238, 230);
+
             LblCustomer = new System.Windows.Forms.Label();
-            LblMarket = new System.Windows.Forms.Label();
+            LblPayment = new System.Windows.Forms.Label();
+            ListInvoice = new System.Windows.Forms.ListBox();
             LblTotal = new System.Windows.Forms.Label();
-            ListItems = new System.Windows.Forms.ListBox();
-            BtnClose = new System.Windows.Forms.Button();
 
             SuspendLayout();
 
+            LblCustomer.AutoSize = true;
             LblCustomer.Location = new System.Drawing.Point(20, 20);
-            LblMarket.Location = new System.Drawing.Point(20, 50);
-            LblTotal.Location = new System.Drawing.Point(20, 80);
 
-            ListItems.Location = new System.Drawing.Point(20, 120);
-            ListItems.Size = new System.Drawing.Size(350, 300);
+            LblPayment.AutoSize = true;
+            LblPayment.Location = new System.Drawing.Point(20, 45);
 
-            BtnClose.Text = "Close";
-            BtnClose.Location = new System.Drawing.Point(20, 440);
-            BtnClose.Click += BtnClose_Click;
+            ListInvoice.Location = new System.Drawing.Point(20, 80);
+            ListInvoice.Size = new System.Drawing.Size(350, 300);
+            ListInvoice.BackColor = System.Drawing.Color.FromArgb(220, 205, 190);
 
-            ClientSize = new System.Drawing.Size(400, 500);
+            LblTotal.AutoSize = true;
+            LblTotal.Location = new System.Drawing.Point(20, 400);
+
+            ClientSize = new System.Drawing.Size(400, 450);
             Controls.Add(LblCustomer);
-            Controls.Add(LblMarket);
+            Controls.Add(LblPayment);
+            Controls.Add(ListInvoice);
             Controls.Add(LblTotal);
-            Controls.Add(ListItems);
-            Controls.Add(BtnClose);
 
-            Text = "Invoice";
-            Load += InvoiceForm_Load;
-
+            Text = "Factura";
             ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
-

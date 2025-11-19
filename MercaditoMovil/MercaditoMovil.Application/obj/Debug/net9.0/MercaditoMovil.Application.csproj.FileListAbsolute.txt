@@ -24,9 +24,11 @@ C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMov
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\refint\MercaditoMovil.Application.dll
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.pdb
 C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\ref\MercaditoMovil.Application.dll
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Locations\locations.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\People\users.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Catalogs\product_catalog.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Commerce\producer_products.csv
+C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Invoices\invoice_records.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Markets\markets.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Producers\producers.csv
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Application.deps.json
@@ -49,4 +51,3 @@ C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\refint\MercaditoMovil.Application.dll
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\ref\MercaditoMovil.Application.dll
-C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\Invoices\invoice_records.csv

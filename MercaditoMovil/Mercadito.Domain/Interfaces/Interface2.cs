@@ -4,17 +4,17 @@ using MercaditoMovil.Domain.Entities;
 namespace MercaditoMovil.Domain.Interfaces
 {
     /// <summary>
-    /// Repositorio de ferias o mercados.
+    /// Repository abstraction for markets.
     /// </summary>
     public interface IMarketRepository
     {
         /// <summary>
-        /// Devuelve todas las ferias registradas.
+        /// Returns all markets.
         /// </summary>
         List<Market> GetAll();
 
         /// <summary>
-        /// Devuelve una feria por su identificador o null cuando no existe.
+        /// Returns a market by its identifier or null when it does not exist.
         /// </summary>
         Market GetById(string marketId);
     }

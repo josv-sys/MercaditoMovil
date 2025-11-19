@@ -2,31 +2,29 @@
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
 using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Application.Services.Interfaces;
 
 namespace MercaditoMovil.Application.Services
 {
     /// <summary>
-    /// Servicio de autenticacion basado en lectura de archivo CSV de usuarios.
+    /// Authentication service based on the users CSV file.
     /// </summary>
     public class AuthService : IAuthService
     {
         private readonly string _usersFilePath;
 
         /// <summary>
-        /// Crea una nueva instancia del servicio de autenticacion.
+        /// Creates a new instance of the authentication service.
         /// </summary>
         public AuthService()
         {
-            // Se asume que la carpeta DataFiles se copia al directorio de salida
-            // junto con la estructura People/users.csv.
+            // DataFiles folder must be copied to the output directory.
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             _usersFilePath = Path.Combine(basePath, "DataFiles", "People", "users.csv");
         }
 
-        /// <summary>
-        /// Intenta autenticar un usuario segun correo y contrasena.
-        /// </summary>
-        public User? IniciarSesion(string email, string password)
+        /// <inheritdoc />
+        public User? SignIn(string email, string password)
         {
             if (!File.Exists(_usersFilePath))
             {
@@ -43,10 +41,9 @@ namespace MercaditoMovil.Application.Services
                 return null;
             }
 
-            // Normalizar encabezados
             for (int i = 0; i < headers.Length; i++)
             {
-                headers[i] = Limpiar(headers[i]);
+                headers[i] = CleanField(headers[i]);
             }
 
             int iUserId = Array.IndexOf(headers, "UserId");
@@ -64,35 +61,34 @@ namespace MercaditoMovil.Application.Services
             int iDistrict = Array.IndexOf(headers, "District");
             int iMarket = Array.IndexOf(headers, "MarketId");
 
-            // Normalizacion de credenciales de entrada
-            string normalizedEmail = Limpiar(email).ToLower();
-            string normalizedPassword = Limpiar(password);
+            string normalizedEmail = CleanField(email).ToLower();
+            string normalizedPassword = CleanField(password);
 
             while (!parser.EndOfData)
             {
-                string[]? campos = parser.ReadFields();
-                if (campos == null)
+                string[]? fields = parser.ReadFields();
+                if (fields == null)
                 {
                     continue;
                 }
 
-                string emailCsv = Limpiar(campos[iEmail]).ToLower();
-                string passwordCsv = Limpiar(campos[iPassword]);
+                string emailCsv = CleanField(fields[iEmail]).ToLower();
+                string passwordCsv = CleanField(fields[iPassword]);
 
                 if (emailCsv == normalizedEmail && passwordCsv == normalizedPassword)
                 {
-                    string userId = Limpiar(campos[iUserId]);
-                    string username = Limpiar(campos[iUsername]);
-                    string firstName = Limpiar(campos[iFirstName]);
-                    string lastName1 = Limpiar(campos[iLast1]);
-                    string lastName2 = Limpiar(campos[iLast2]);
-                    string nationalId = Limpiar(campos[iNationalId]);
-                    string phone = Limpiar(campos[iPhone]);
-                    string address = Limpiar(campos[iAddress]);
-                    string province = Limpiar(campos[iProvince]);
-                    string canton = Limpiar(campos[iCanton]);
-                    string district = Limpiar(campos[iDistrict]);
-                    string marketId = Limpiar(campos[iMarket]);
+                    string userId = CleanField(fields[iUserId]);
+                    string username = CleanField(fields[iUsername]);
+                    string firstName = CleanField(fields[iFirstName]);
+                    string lastName1 = CleanField(fields[iLast1]);
+                    string lastName2 = CleanField(fields[iLast2]);
+                    string nationalId = CleanField(fields[iNationalId]);
+                    string phone = CleanField(fields[iPhone]);
+                    string address = CleanField(fields[iAddress]);
+                    string province = CleanField(fields[iProvince]);
+                    string canton = CleanField(fields[iCanton]);
+                    string district = CleanField(fields[iDistrict]);
+                    string marketId = CleanField(fields[iMarket]);
 
                     var user = new User(
                         userId,
@@ -117,7 +113,10 @@ namespace MercaditoMovil.Application.Services
             return null;
         }
 
-        private static string Limpiar(string? value)
+        /// <summary>
+        /// Normalizes a raw CSV field.
+        /// </summary>
+        private static string CleanField(string? value)
         {
             if (value == null)
             {

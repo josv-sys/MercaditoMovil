@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MercaditoMovil.Views.WinForms.Models
+﻿namespace MercaditoMovil.Views.WinForms.Models
 {
     /// <summary>
-    /// Representa una linea dentro de la factura mostrada en pantalla.
+    /// Represents a single line of the invoice shown on screen.
     /// </summary>
     public class InvoiceLineViewModel
     {
@@ -16,3 +10,4 @@ namespace MercaditoMovil.Views.WinForms.Models
         public decimal Amount { get; set; }
     }
 }
+

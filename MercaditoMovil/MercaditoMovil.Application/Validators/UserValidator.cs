@@ -4,13 +4,16 @@ using System.Text.RegularExpressions;
 namespace MercaditoMovil.Application.Validators
 {
     /// <summary>
-    /// Reglas basicas de validacion para datos de usuario.
+    /// Basic validation rules for user data.
     /// </summary>
     public static partial class UserValidator
     {
         /// <summary>
-        /// Valida las credenciales de inicio de sesion.
+        /// Validates login credentials.
         /// </summary>
+        /// <param name="username">User name.</param>
+        /// <param name="password">User password.</param>
+        /// <returns>List of validation error messages.</returns>
         public static List<string> ValidateCredentials(string username, string password)
         {
             var errors = new List<string>();
@@ -35,8 +38,14 @@ namespace MercaditoMovil.Application.Validators
         }
 
         /// <summary>
-        /// Valida campos minimos de registro de usuario.
+        /// Validates minimal fields required to register a user.
         /// </summary>
+        /// <param name="username">User name.</param>
+        /// <param name="password">User password.</param>
+        /// <param name="nationalId">National ID.</param>
+        /// <param name="email">Email address.</param>
+        /// <param name="phone">Phone number.</param>
+        /// <returns>List of validation error messages.</returns>
         public static List<string> ValidateRegistration(
             string username,
             string password,

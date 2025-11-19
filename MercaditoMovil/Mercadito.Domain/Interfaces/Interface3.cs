@@ -4,17 +4,17 @@ using MercaditoMovil.Domain.Entities;
 namespace MercaditoMovil.Domain.Interfaces
 {
     /// <summary>
-    /// Repositorio de productos.
+    /// Repository abstraction for products.
     /// </summary>
     public interface IProductRepository
     {
         /// <summary>
-        /// Devuelve todos los productos disponibles para un mercado.
+        /// Returns all products available for the given market.
         /// </summary>
         List<Product> GetByMarket(string marketId);
 
         /// <summary>
-        /// Devuelve un producto por su identificador de catalogo o null cuando no existe.
+        /// Returns a product by its catalog identifier or null when it does not exist.
         /// </summary>
         Product GetByCatalogId(string productCatalogId);
     }
