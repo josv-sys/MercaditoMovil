@@ -1,0 +1,3 @@
+InvoiceId,UserId,UserName,MarketId,MarketName,ProducerId,ProductCatalogId,ProductName,Quantity,UnitPrice,TotalPrice,PaymentMethod,InvoiceDateTime
+INV-0001,USR-001,Juan Perez,MKT-0001,San Jose Central,PR-450,CAT-0010,Tomate Cherry,3,550,1650,SinpeMovil,2025-11-19 14:33:20
+INV-0002,USR-002,Ana Lopez,MKT-0003,Alajuela Oeste,PR-233,CAT-0022,Lechuga Organica,2,700,1400,Efectivo,2025-11-19 14:35:10

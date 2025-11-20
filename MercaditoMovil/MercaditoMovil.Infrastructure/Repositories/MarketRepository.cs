@@ -1,41 +1,89 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Domain.Interfaces;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
-    public class MarketRepository
+    /// <summary>
+    /// Market repository based on a CSV file.
+    /// </summary>
+    public class MarketRepository : IMarketRepository
     {
         private readonly string _file;
 
         public MarketRepository()
         {
-            _file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                 "DataFiles", "Markets", "markets.csv");
+            _file = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "Markets",
+                "markets.csv");
         }
 
-        public List<Feria> GetAll()
+        /// <inheritdoc />
+        public List<Market> GetAll()
         {
-            if (!File.Exists(_file))
-                return new List<Feria>();
+            var markets = new List<Market>();
 
-            return File.ReadAllLines(_file)
-                .Skip(1)
-                .Select(line => line.Split(','))
-                .Where(p => p.Length >= 5)
-                .Select(p => new Feria
+            if (!File.Exists(_file))
+            {
+                return markets;
+            }
+
+            string[] lines = File.ReadAllLines(_file);
+
+            // Skip header.
+            for (int i = 1; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                if (string.IsNullOrWhiteSpace(line))
                 {
-                    MarketId = p[0],
-                    MarketName = p[1],
-                    Province = p[2],
-                    Canton = p[3],
-                    District = p[4]
-                })
-                .ToList();
+                    continue;
+                }
+
+                string[] parts = line.Split(',');
+                if (parts.Length < 5)
+                {
+                    continue;
+                }
+
+                var market = new Market
+                {
+                    MarketId = parts[0].Trim(),
+                    Name = parts[1].Trim(),
+                    Province = parts[2].Trim(),
+                    Canton = parts[3].Trim(),
+                    District = parts[4].Trim()
+                };
+
+                markets.Add(market);
+            }
+
+            return markets;
         }
 
-        public Feria? GetById(string id)
-            => GetAll().FirstOrDefault(f => f.MarketId == id);
+        /// <inheritdoc />
+        public Market? GetById(string marketId)
+        {
+            if (marketId == null)
+            {
+                return null;
+            }
+
+            string normalized = marketId.Trim();
+
+            List<Market> markets = GetAll();
+            int i = 0;
+            while (i < markets.Count)
+            {
+                if (markets[i].MarketId == normalized)
+                {
+                    return markets[i];
+                }
+
+                i++;
+            }
+
+            return null;
+        }
     }
 }

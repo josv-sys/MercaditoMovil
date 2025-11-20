@@ -1,47 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Text;
 using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
+    /// <summary>
+    /// Reads the general product catalog information.
+    /// This catalog does NOT create Product objects because Product
+    /// is created from producer_products.csv (availability file).
+    /// </summary>
     public class ProductCatalogRepository
     {
-        private readonly string _file;
+        private readonly string _filePath;
 
         public ProductCatalogRepository()
         {
-            _file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                "DataFiles", "Catalogs", "product_catalog.csv");
+            _filePath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "Catalogs",
+                "product_catalog.csv");
         }
 
-        public List<Producto> GetAll()
+        /// <summary>
+        /// Returns the internal catalog as dictionary: catalogId -> name.
+        /// </summary>
+        public Dictionary<string, string> GetCatalog()
         {
-            var result = new List<Producto>();
+            var dict = new Dictionary<string, string>();
 
-            if (!File.Exists(_file))
-                return result;
+            if (!File.Exists(_filePath))
+                return dict;
 
-            var lines = File.ReadAllLines(_file).Skip(1);
+            string[] lines = File.ReadAllLines(_filePath, Encoding.UTF8);
 
-            foreach (var line in lines)
+            for (int i = 1; i < lines.Length; i++)
             {
-                var parts = line.Split(',');
-                if (parts.Length < 4)
+                string line = lines[i];
+                if (string.IsNullOrWhiteSpace(line))
                     continue;
 
-                result.Add(new Producto
-                {
-                    ProductCatalogId = parts[0],
-                    Nombre = parts[1],
-                    Unidad = parts[2],
-                    Activo = parts[3].Trim().ToLower() == "true"
-                });
+                string[] c = line.Split(',');
+
+                string id = c[0];
+                string name = c[1];
+
+                if (!dict.ContainsKey(id))
+                    dict.Add(id, name);
             }
 
-            return result;
+            return dict;
         }
     }
 }
+
+
+
 

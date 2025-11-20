@@ -1,52 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
+﻿using System.Globalization;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
+    /// <summary>
+    /// Reads producer product availability from a CSV file.
+    /// </summary>
     public class ProducerProductsRepository
     {
         private readonly string _file;
 
         public ProducerProductsRepository()
         {
-            _file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                "DataFiles", "Commerce", "producer_products.csv");
+            _file = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "Commerce",
+                "producer_products.csv");
         }
 
+        /// <summary>
+        /// Returns product availability by catalog identifier.
+        /// </summary>
         public List<(string ProductCatalogId, decimal Price, int Stock, string Packaging)> GetAvailability()
         {
             var result = new List<(string, decimal, int, string)>();
 
             if (!File.Exists(_file))
-                return result;
-
-            var lines = File.ReadAllLines(_file).Skip(1);
-
-            foreach (var line in lines)
             {
-                var parts = line.Split(',');
-                if (parts.Length < 18)
+                return result;
+            }
+
+            string[] lines = File.ReadAllLines(_file);
+
+            // Skip header.
+            for (int i = 1; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                if (string.IsNullOrWhiteSpace(line))
+                {
                     continue;
+                }
+
+                string[] parts = line.Split(',');
+                if (parts.Length < 18)
+                {
+                    continue;
+                }
 
                 string catalogId = parts[2].Trim();
-                string packaging = parts[6].Trim(); // PACKAGING ES COLUMNA 7 (ÍNDICE 6)
+                string packaging = parts[6].Trim();
 
-                // Precio
-                decimal price = 0;
-                decimal.TryParse(parts[3], NumberStyles.Any, CultureInfo.InvariantCulture, out price);
+                decimal price;
+                if (!decimal.TryParse(
+                        parts[3],
+                        NumberStyles.Any,
+                        CultureInfo.InvariantCulture,
+                        out price))
+                {
+                    price = 0;
+                }
 
-                // Stock
-                int stock = 0;
+                int stock;
                 if (!int.TryParse(parts[13], out stock))
+                {
                     stock = 1;
+                }
 
-                // Activo
                 bool active = parts[17].Trim().ToLower() == "true";
                 if (!active)
+                {
                     continue;
+                }
 
                 result.Add((catalogId, price, stock, packaging));
             }
@@ -55,8 +79,4 @@ namespace MercaditoMovil.Infrastructure.Repositories
         }
     }
 }
-
-
-
-
 

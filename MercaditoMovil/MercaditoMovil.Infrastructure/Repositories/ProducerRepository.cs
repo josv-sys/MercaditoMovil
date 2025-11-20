@@ -1,41 +1,94 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using MercaditoMovil.Domain.Entities;
+﻿using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Domain.Interfaces;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
-    public class ProducerRepository
+    /// <summary>
+    /// Producer repository based on a CSV file.
+    /// </summary>
+    public class ProducerRepository : IProducerRepository
     {
         private readonly string _file;
 
         public ProducerRepository()
         {
-            _file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                 "DataFiles", "Producers", "producers.csv");
+            _file = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles",
+                "Producers",
+                "producers.csv");
         }
 
+        /// <inheritdoc />
         public List<Producer> GetAll()
         {
-            if (!File.Exists(_file))
-                return new List<Producer>();
+            var list = new List<Producer>();
 
-            return File.ReadAllLines(_file)
-                .Skip(1)
-                .Select(l => l.Split(','))
-                .Where(p => p.Length >= 8)
-                .Select(p => new Producer
+            if (!File.Exists(_file))
+            {
+                return list;
+            }
+
+            string[] lines = File.ReadAllLines(_file);
+
+            // Skip header.
+            for (int i = 1; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                if (string.IsNullOrWhiteSpace(line))
                 {
-                    ProducerId = p[0],
-                    ProducerCode = p[1],
-                    NationalId = p[2],
-                    Name = p[3],
-                    Email = p[4],
-                    Phone = p[5],
-                    MarketId = p[6],
-                    UserId = p[7]
-                })
-                .ToList();
+                    continue;
+                }
+
+                string[] parts = line.Split(',');
+                if (parts.Length < 8)
+                {
+                    continue;
+                }
+
+                var producer = new Producer
+                {
+                    ProducerId = parts[0].Trim(),
+                    ProducerCode = parts[1].Trim(),
+                    NationalId = parts[2].Trim(),
+                    Name = parts[3].Trim(),
+                    Email = parts[4].Trim(),
+                    Phone = parts[5].Trim(),
+                    MarketId = parts[6].Trim(),
+                    UserId = parts[7].Trim(),
+                    IsActive = true
+                };
+
+                list.Add(producer);
+            }
+
+            return list;
+        }
+
+        /// <inheritdoc />
+        public Producer? GetById(string producerId)
+        {
+            if (producerId == null)
+            {
+                return null;
+            }
+
+            string normalized = producerId.Trim();
+
+            List<Producer> producers = GetAll();
+            int i = 0;
+            while (i < producers.Count)
+            {
+                if (producers[i].ProducerId == normalized)
+                {
+                    return producers[i];
+                }
+
+                i++;
+            }
+
+            return null;
         }
     }
 }
+

@@ -1,47 +1,42 @@
-﻿using System;
-using System.Windows.Forms;
-using MercaditoMovil.Application.Services;
+﻿using MercaditoMovil.Application.Services;
+using MercaditoMovil.Application.Services.Interfaces;
 using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Views.WinForms.Controllers
 {
+    /// <summary>
+    /// Controller used by the login view to authenticate users.
+    /// </summary>
     public class LoginController
     {
-        private readonly AuthService _authService;
+        private readonly IAuthService _authService;
 
+        /// <summary>
+        /// Creates a new login controller using the default authentication service.
+        /// </summary>
         public LoginController()
+            : this(new AuthService())
         {
-            _authService = new AuthService();
         }
 
         /// <summary>
-        /// Valida las credenciales del usuario contra users.csv
+        /// Creates a new login controller with an injected authentication service.
         /// </summary>
-        public Usuario? IniciarSesion(string correo, string contrasena)
+        public LoginController(IAuthService authService)
         {
-            try
-            {
-                var usuario = _authService.IniciarSesion(correo, contrasena);
+            _authService = authService;
+        }
 
-                if (usuario == null)
-                {
-                    MessageBox.Show("Correo o contraseña incorrectos.",
-                        "Error de autenticación",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return null;
-                }
-
-                return usuario;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al iniciar sesión: {ex.Message}",
-                    "Error interno",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return null;
-            }
+        /// <summary>
+        /// Tries to authenticate a user with the given credentials.
+        /// </summary>
+        /// <param name="email">User email.</param>
+        /// <param name="password">User password.</param>
+        /// <returns>Authenticated user or null when credentials are invalid.</returns>
+        public User? SignIn(string email, string password)
+        {
+            return _authService.SignIn(email, password);
         }
     }
 }
+
